@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.form-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://www.preparationinfo.org/wp-content/uploads/2015/10/Online-and-Classroom-Courses-for-professionals-RegisterNow-PreparationInfo.jpg");
+}
+
+/* .signup {
+  text-align: center;
+  font-family: 'Lily Script One', cursive;
+  font-size: 46px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: lightgray;
+  width: 400px;
+  transition: 0.2s ease all;
+} */
+.form_data {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main_form {
+  width: 400px;
+  background: #00adff75;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+input#email {
+  border: solid 1px;
+}
+
+input#firstName {
+  border: solid 1px;
+}
+
+input#lastName {
+  border: solid 1px;
+}
+
+input#mobileNumber {
+  border: solid 1px;
+}
+
+.signup {
+  margin: 0 auto;
+  width: 321px;
+  font-family: 'Lily Script One', cursive;
+  font-size: 53px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: lightgray;
+  -webkit-transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -ms-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
+#logo:hover {
+  color: #edaa64;
+}
+
+input {
+  border-radius: 10px !important;
+  margin-top: 8px;
+}
+
+input:focus-visible {
+  outline: none;
+}
+
+input#firstName {
+  border: solid 1px;
+}
+
+label {
+  color: #fff;
+  font-weight: 600;
+}
+
+[type="submit"] {
+  font-weight: 600;
+}
+
+[type="submit"]:hover {
+  background-color: #edaa64 !important;
+}
+
+h1.fill {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+p {
+  color: white;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 47px;
+  font-weight: bold;
+}
+a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+a::before,
+a::after {
+ content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+a::before {
+  background-color: #54b3d6;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #54b3d6;
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+
+
+a {
+  text-decoration: none;
+  color: #18272F;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+
