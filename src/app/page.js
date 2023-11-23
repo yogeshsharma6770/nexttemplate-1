@@ -1,5 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
 import Username from "./components/Username";
-import Link from "next/link";
 export default function Home() {
   return (
     <div className="form-main">

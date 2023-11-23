@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* eslint-disable react/no-unescaped-entities */
 .form-main {
   display: flex;
   justify-content: center;
