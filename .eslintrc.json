@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // other rules
+    "eslint-rule-to-disable": "off" // Replace 'eslint-rule-to-disable' with the rule you want to disable
+    // additional rules
+  }
 }
