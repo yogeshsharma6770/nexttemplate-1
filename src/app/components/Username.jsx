@@ -23,7 +23,7 @@ const Username = () => {
   };
 
   const calculateProgress = () => {
-    return ((step - 1) / 3) * 100; // Assuming 3 steps in the form
+    return ((step - 1) / 3) * 100; 
   };
 
   const handleChange = (e) => {
@@ -34,24 +34,24 @@ const Username = () => {
     });
     setErrors({
       ...errors,
-      [name]: '', // Resetting errors on change
+      [name]: '',
     });
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate(formData);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+  e.preventDefault();
+  const validationErrors = validate(formData);
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+  } else {
+    if (step < 3) {
+      setStep(step + 1);
     } else {
-      if (step < 3) {
-        setStep(step + 1);
-      } else {
-        setSubmitted(true);
-        console.log('Final form data:', formData); // Replace this with the action you want on final submission
-      }
+      setSubmitted(true);
+      console.log('Final form data:', formData);
     }
-  };
+  }
+};
 
   const validate = (values) => {
     let errors = {};
@@ -112,49 +112,90 @@ const Username = () => {
 
   const progressBarStyle = {
     width: '100%',
-    backgroundColor: '#ddd',
-    borderRadius: '5px',
+    backgroundColor: '#f0f0f0',
+    borderRadius: '10px',
     marginBottom: '20px',
     height: '20px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    overflow: 'hidden',
   };
 
-  const progressStyle = {
-    height: '100%',
-    width: `${calculateProgress()}%`,
-    backgroundColor: '#007bff',
-    borderRadius: '5px',
-    transition: 'width 0.3s ease-in-out',
+  const progressSteps = [
+    { stepNumber: 1, color: '#ff8080', shape: '20px' },
+    { stepNumber: 2, color: '#80bfff', shape: '20px' },
+    { stepNumber: 3, color: '#80ff80', shape: '20px' },
+  ];
+
+  const CustomProgressBar = () => {
+    return (
+      <div style={progressBarStyle}>
+        {progressSteps.map((stepInfo) => (
+          <div
+            key={stepInfo.stepNumber}
+            style={{
+              backgroundColor: stepInfo.color,
+              flex: '1',
+              height: '100%',
+              borderRadius: '10px',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                backgroundColor: '#fff',
+                borderRadius: '50%',
+                width: stepInfo.shape,
+                height: stepInfo.shape,
+                display: step === stepInfo.stepNumber ? 'block' : 'none',
+              }}
+            ></div>
+          </div>
+        ))}
+      </div>
+    );
   };
-  const ProgressDots = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-      {[1, 2, 3].map((index) => (
-        <div
-          key={index}
-          style={{
-            width: '10px',
-            height: '10px',
-            borderRadius: '50%',
-            backgroundColor: index === step ? '#007bff' : '#ddd',
-            margin: '0 5px',
-          }}
-        />
-      ))}
-    </div>
-  );
+
+  const ProgressDots = () => {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        {[1, 2, 3].map((index) => (
+          <div
+            key={index}
+            style={{
+              width: '10px',
+              height: '10px',
+              borderRadius: '50%',
+              backgroundColor: index === step ? '#007bff' : '#ddd',
+              margin: '0 5px',
+              cursor: 'pointer',
+            }}
+            onClick={() => setStep(index)}
+          />
+        ))}
+      </div>
+    );
+  };
 
   return (
-    <div>
+    <div className="form-container">
       {submitted ? (
         <div>
-         <p> <a href="#" id="style-2" data-replace="Thank you for submitting form"><span>Thank you for submitting form</span></a></p>
+          <p>
+            <a href="#" id="style-2" data-replace="Thank you for submitting form">
+              <span>Thank you for submitting form</span>
+            </a>
+          </p>
         </div>
       ) : (
         <div>
-          <div style={progressBarStyle}>
-            <div style={progressStyle}></div>
-          </div>
-         
-          <form onSubmit={handleSubmit}>
+          <CustomProgressBar />
+         <form onSubmit={handleSubmit} >
             {step === 1 && (
               <div>
                 <div>
@@ -277,15 +318,15 @@ const Username = () => {
                 </button>
               </div>
             )}
-
             {step > 1 && (
               <button type="submit" onClick={handlePrevious} style={buttonStyle}>
                 Previous
               </button>
             )}
           </form>
-          <br></br>
+          <div className='Progress_dots'>
           <ProgressDots />
+          </div>
         </div>
       )}
     </div>
@@ -293,3 +334,4 @@ const Username = () => {
 };
 
 export default Username;
+

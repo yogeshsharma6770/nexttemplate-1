@@ -11,16 +11,6 @@
   background-image: url("https://www.preparationinfo.org/wp-content/uploads/2015/10/Online-and-Classroom-Courses-for-professionals-RegisterNow-PreparationInfo.jpg");
 }
 
-/* .signup {
-  text-align: center;
-  font-family: 'Lily Script One', cursive;
-  font-size: 46px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: lightgray;
-  width: 400px;
-  transition: 0.2s ease all;
-} */
 .form_data {
   width: 100%;
   max-width: 900px;
@@ -56,10 +46,11 @@ input#mobileNumber {
   margin: 0 auto;
   width: 321px;
   font-family: 'Lily Script One', cursive;
-  font-size: 53px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 20px;
   color: lightgray;
   -webkit-transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
@@ -169,6 +160,9 @@ a {
   color: #18272F;
   font-weight: 700;
   vertical-align: top;
-}
 
+}
+.Progress_dots {
+  margin-top: 20px;
+}
 
